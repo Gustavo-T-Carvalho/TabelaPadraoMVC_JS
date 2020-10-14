@@ -38,7 +38,7 @@ class NegociacoesView extends View{
                     //     return total;
                         
                     // })()
-                    listaNegociacoes.negociacoes.reduce((total,n)=>total+n.volume,0.0)
+                    listaNegociacoes.volumeTotal
 
 
 

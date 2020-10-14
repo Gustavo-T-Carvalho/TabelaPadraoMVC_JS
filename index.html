@@ -45,18 +45,21 @@
     </form>
 
     <div class="text-center">
-      <button class="btn btn-primary text-center" type="button">
+      <button  onclick="negociacaoController.importaNegociacoes()"  class="btn btn-primary text-center" type="button">
         Importar Negociações
       </button>
-      <button class="btn btn-primary text-center" type="button">Apagar</button>
+      <button
+        class="btn btn-primary text-center"
+        type="button"
+        onclick="negociacaoController.apaga(event)"
+      >
+        Apagar
+      </button>
     </div>
     <br />
     <br />
-    <div id="negociacoesView">
-      
-    </div>
-   
-   
+    <div id="negociacoesView"></div>
+
     <script src="./app/models/Negociacao.js"></script>
     <script src="./app/controllers/NegociacaoController.js"></script>
     <script src="./app/helpers/DateHelper.js"></script>
@@ -65,13 +68,47 @@
     <script src="./app/views/NegociacoesView.js"></script>
     <script src="./app/models/Mensagem.js"></script>
     <script src="./app/views/MensagemView.js"></script>
+    <script src="./app/services/ProxyFactory.js"></script>
+    <script src="./app/helpers/Bind.js"></script>
+    <script src="./app/services/NegociacaoService.js"></script>
+    <script src="./app/services/HttpService.js"></script>
 
-    
+
 
 
     <script>
-        let negociacaoController = new NegociacaoController();
-
+      let negociacaoController = new NegociacaoController();
     </script>
+
+    <script>
+      //let lista = new Proxy(new ListaNegociacoes(), {
+        // Get - Será chamado todas as vezes que alguma propriedade do objeto for ser acessada
+        // Target - Referência ao objeto original que está sendo encapsulado pelo proxy
+        // pop é a propriedade que está sendo acessada
+        //receiver - referência para o proprio proxy
+
+        // set: function(target, prop, value, receiver){
+        //   console.log(`Valor anterior ${target[prop]} novo valor ${value}`)
+        //   //return Reflect.get(target,prop,receiver);
+
+        //   return Reflect.set(target,prop,value, receiver);
+        // }
+
+      //   get(target, prop, receiver) {
+      //     if (
+      //       ["adiciona", "esvazia"].includes(prop) &&
+      //       typeof(target[prop]) == typeof(Function)
+      //     ) {
+      //       return function () {
+      //         console.log(`interceptando ${prop}`);
+      //         Reflect.aplly(target[prop], target, arguments);
+      //       };
+      //     }
+
+      //     return Reflect.get(target, prop, receiver);
+      //   },
+      // });
+    
+    //</script>
   </body>
 </html>
